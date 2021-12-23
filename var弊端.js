@@ -22,8 +22,27 @@
 
 
 // var 声明的时候没有块级作用域。
-{
-    var a = 10;
-}
+// {
+//     var a = 10;
+// }
 
-console.log(a);
+// console.log(a);
+
+// console.log(a);
+// let a = 10;
+
+// 使用let后不会出现变量提升。 先试用后声明将会报错。
+// Cannot access 'a' before initialization;
+
+// let a = 10;
+// let a = 20;
+// 无法实现var的重复声明。 重复声明会报错... Xxx has already been declared.
+
+// for (let i = 0; i < 10; i++){
+
+// }
+
+// console.log(i);
+
+
+// 
