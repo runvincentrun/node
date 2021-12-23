@@ -14,7 +14,16 @@
 // console.log(b);
 
 // for循环时全局污染. 可以使用let来避免污染。
-for (var i = 0; i < 5; i++) {
-    console.log(i);
+// for (var i = 0; i < 5; i++) {
+//     console.log(i);
+// }
+// console.log(i);
+
+
+
+// var 声明的时候没有块级作用域。
+{
+    var a = 10;
 }
-console.log(i);
+
+console.log(a);
