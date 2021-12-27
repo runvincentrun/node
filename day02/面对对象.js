@@ -1,22 +1,24 @@
 class Animal {
-    static age = 10;
-    constructor(name){
-        console.log(1111);
-        this.name =name;
+  static age = 10;
+  constructor(name) {
+    console.log(1111);
+    this.name = name;
+  }
+  showName() {
+    console.log(this.name);
+  }
 
-    }
-    showName(){
-        console.log(this.name);
-    }
-
-    static eat(){
-        console.log("eat");
-    }
-} 
+  static eat() {
+    console.log("eat");
+  }
+}
 
 let a = new Animal("H");
 // a.showName();
-console.log(a.name)
+console.log(a.name);
 
 Animal.eat();
-console.log(Animal.age)
+console.log(Animal.age);
+
+let a = 30;
+// export a = 30;
