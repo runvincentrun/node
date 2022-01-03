@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div></div>
+    <form action="http://localhost:8081" method="POST">
+      用户名: <input type="text" name="username" /> <br /><br />
+      密码: <input type="password" name="password" /> <br /><br />
+      <input type="button" value="提交" />
+    </form>
+    <script>
+      const btn = document.querySelector("input[type=button]");
+      const div = document.querySelector("div");
+      const username = document.querySelector("[name=username]");
+      const password = document.querySelector("[name=password]");
+
+      btn.onclick = () => {
+        let usernameValue = username.value;
+        let passwordValue = password.value;
+        let params = {
+          username: usernameValue,
+          password: passwordValue,
+        };
+
+        console.log(params);
+        let xhr = new XMLHttpRequest();
+        xhr.open("POST", "/login_post");
+        xhr.overrideMimeType("plain text");
+        xhr.onreadystatechange = () => {
+          if (xhr.readyState == 4 && xhr.status === 200) {
+            div.innerText = xhr.responseText;
+          }
+        };
+        xhr.send(JSON.stringify(params));
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/index.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>首页</h1>
+    <hr />
+    <p>欢迎来到我们的网站</p>
+    <button id="obtn">点击按钮加载更多信息</button>
+    <div></div>
+    <script>
+      const btn = document.querySelector("button");
+      btn.addEventListener("click", function () {
+        const div = document.querySelector("div");
+        let xhr = new XMLHttpRequest();
+
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === 4 && xhr.status === 200) {
+            console.log(xhr.responseText);
+          }
+        };
+
+        xhr.open("GET", "/data");
+        xhr.send();
+      });
+    </script>
+  </body>
+</html>
