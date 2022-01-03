@@ -14,17 +14,31 @@ async function readFilex(path) {
 const server = http.createServer((req, res) => {
   let reqUrl = req.url;
   if (reqUrl == "/" || reqUrl == "/index.html") {
-    let filePath = path.join(__dirname, "html", "index.html");
+    let filePath = path.join(__dirname, "jQuery", "index.html");
     let content = fs.readFileSync(filePath);
-    res.end(req.method);
+    res.end(content);
   } else if (reqUrl == "/detail.html") {
     let filePath = path.join(__dirname, "html", "detail.html");
+    let content = fs.readFileSync(filePath);
+    res.end(content);
+  } else if (reqUrl == "/jquery.min.js") {
+    let filePath = path.join(
+      __dirname,
+      "jQuery",
+      "node_modules",
+      "jquery",
+      "dist",
+      "jquery.min.js"
+    );
     let content = fs.readFileSync(filePath);
     res.end(content);
   } else if (reqUrl.endsWith(".css")) {
     let filePath = path.join(__dirname, "css", "index.css");
     let content = fs.readFileSync(filePath);
     res.end(content);
+  } else if (reqUrl == "/ajax") {
+    let result = "请求成功.";
+    res.end(result);
   } else if (reqUrl == "/login.html") {
     let filePath = path.join(__dirname, "html", "login.html");
     let content = fs.readFileSync(filePath);

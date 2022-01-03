@@ -36,6 +36,7 @@
             div.innerText = xhr.responseText;
           }
         };
+        xhr.setRequestHeader("Cache-Control", "no-cache");
         xhr.send(JSON.stringify(params));
       };
     </script>
