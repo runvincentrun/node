@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        margin-top: 50px;
+        width: 200px;
+        height: 100px;
+        border: 1px solid tomato;
+      }
+    </style>
+  </head>
+  <body>
+    <button>发送请求</button>
+    <div></div>
+    <script>
+      const btn = document.querySelector("button");
+      const div = document.querySelector("div");
+
+      btn.onclick = () => {
+        let xhr = new XMLHttpRequest();
+        xhr.open("GET", "http://localhost:8089/server?a=100&b=200&c=300");
+        xhr.send();
+        xhr.onreadystatechange = () => {
+          if (xhr.readyState === 4 && xhr.status === 200) {
+            div.innerHTML = xhr.responseText;
+          }
+        };
+      };
+    </script>
+  </body>
+</html>
